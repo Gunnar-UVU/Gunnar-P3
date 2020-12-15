@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Bigfoot the Wanderer</title>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/validation.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/view.js"></script>
+    </head>
+    <link rel="stylesheet" href="css/main.css">
+    <body>
+        <div id="content">
+            <header>
+                <nav>
+                    <div id="menu"><img class="menuicon" alt="Menu Icon" src="images/menu.png"></div>
+                    <div id="menuwords">Menu</div>
+                    <div class="slide-content">
+                        <button type="button" id="main" class="selection">Main</button>
+                        <div> </div>
+                        <button type="button" id="contact" class="selection">Contact</button>
+                        <div> </div>
+                        <button type="button" id="logVisit" class="selection" onclick=checkLocal>Log Visit</button>
+                        <div> </div>
+                        <button type="button" id="also" class="selection">Also See</button>
+                    </div>
+                </nav>
+                <div id="header"><img class="bigfooticon" src="images/bigfootL.png" alt="Generic Bigfoot Picture"> Bigfoot the Wanderer <img class="bigfooticon" src="images/bigfootR.png" alt="Generic Bigfoot Picture"></div>
+                <div></div>
+            </header>
+
+            <main class="stuff" id="main1">
+                <p id="p1" class="inmain">Bigfoot, also known as Sasquatch, in Canadian folklore and American folklore, is an ape-like creature that is said to inhabit the forests of North America. Supposed evidence of Bigfoot's existence is based on a number of disputed short videos, photographs, visual sightings, casts of large footprints, etc. Several of these are known to be hoaxes. The enormous footprints for which the creature is named are claimed to be as large as 24 inches (60 cm) long and 8 inches (20 cm) wide.
+                    <br><br><label for="somePictures">Select a different image to view:</label>
+                    <br><select class="inmain" id="otherPictures" onchange="changePic()">
+                        <option class="inmain" id="original" value="original">1967 bigfoot still</option>
+                        <option class="inmain" id="colorized" value="colorized">Colorized version</option>
+                        <option class="inmain" id="statue" value="statue">Bigfoot statue</option>
+                        <option class="inmain" id="map" value="map">Map of sightings</option>
+                    </select>
+                </p>
+                <figure id="currentPicture" class="inmain">
+                    <img id="shownPicture" src="images/Bigfootorig.jpg" alt="Collection of bigfoot images" class="inmain" style="max-height:300px">
+                    <figcaption id="captions" class="inmain">
+                        <i>Bigfoot footage shot in 1967</i><br>
+                    </figcaption>
+                </figure>
+            </main>
+
+            <section id="contacts" class="stuff"><h1>Contact Me</h1>Gunnar Bostrom<br><em>Email: <a href="mailto:10862248@my.uvu.edu">10862248@my.uvu.edu</a></em><br></section>
+            
+            <section id="main2" class="stuff">
+                <div id="main21">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rBdAs4MPOA0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p id="p2">Folklorists trace the figure of Bigfoot to a combination of factors and sources, including folklore surrounding the European wild man figure, folk belief among Native Americans and loggers, and a cultural increase in environmental concerns. Within the fringe subculture of cryptozoology Bigfoot is considered a cryptid, however the majority of mainstream scientists have historically discounted the existence of Bigfoot, considering it to be a combination of folklore, misidentification, and hoax, rather than a living animal.</p>
+                </div>
+            </section>
+
+            <div id="visitLog" class="stuff">
+                <h1 id="log">Visitor Log</h1>
+                <button type="button" class="smallbutton" id="new" onclick=newVisitor()>New Visitor</button>
+                <section id="visitTable" class="stuff">
+                    <table id="myTable"></table>
+                </section>
+
+                <section id="formed">
+                    <div id="form-at">
+                        <div id=completeMsg>Thank you for completing the form and logging your visit!</div>
+                        <form id="myform" novalidate>
+                            <div class="left fName">
+                                <input type="text" id="fName" name="fName" placeholder="Enter first name" required><br>
+                                <label for="fName">First Name</label>
+                                <div class="errorMsg" >First name is required</div>
+                            </div>
+                            <div class="right lName">
+                                <input type="text" id="lName" name="lName" placeholder="Enter last name" required><br>
+                                <label for="lName">Last Name</label>
+                                <div class="errorMsg">Last name is required</div>
+                            </div>
+                            
+                            <div class="fullLine address">
+                                <input type="text" id="address" name="address" size="55" placeholder="Enter street address" required><br>
+                                <label for="address">Street Address</label>
+                                <div class="errorMsg">Address is required</div>
+                            </div>
+                            
+                            <div class="left short city">
+                                <input type="text" id="city" name="city" size="10" placeholder="City" required><br>
+                                <label for="city">City</label>
+                                <div class="errorMsg">City is required</div>
+                            </div>
+                            <div class="state short">
+                                <input type="text" id="state" name="state" maxlength="2" size="5" placeholder="State" required><br>
+                                <label for="state">State</label>
+                                <div class="errorMsg">A valid state code is required</div>
+                            </div>
+                            <div class="right short zip">
+                                <input type="text" id="zip" name="zip" maxlength="5" size="10" placeholder="Zip" required><br>
+                                <label for="zip">Zip</label>
+                                <div class="errorMsg">Zip Code is required</div>
+                            </div>
+                            <div class="left phone">
+                                <input type="tel" id="phone" name="phone" placeholder="Phone" maxlength="10" required><br>
+                                <label for="phone">Phone</label>
+                                <div class="errorMsg">Phone Number is required</div>
+                            </div>
+                            <div class="right email">
+                                <input type="email" id="email" name="email" placeholder="email@email.com" required><br>
+                                <label for="email">Email</label>
+                                <div class="errorMsg">Email address is required</div>
+                            </div>
+                            <div display="flex" id="checks" class="source">
+                                <h3>How did you find my page?</h3>
+                                <div class="errorMsg left">You must check at least one</div>
+                                <div class="left" id="source">
+                                    <label for="search">Internet Search</label>
+                                    <input type="checkbox" name="source" value="search" id="search">
+                                </div>
+                                <div class="right">
+                                    <label for="friend">A Friend</label>
+                                    <input type="checkbox" name="source" value="friend" id="friend">
+                                </div>
+                                <div class="left">
+                                    <label for="creator">By Creator</label>
+                                    <input type="checkbox" name="source" value="creator" id="creator">
+                                </div>
+                                <div class="right">
+                                    <label for="youtube">YouTube</label>
+                                    <input type="checkbox" name="source" value="youtube" id="youtube">
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <label for="comments"><h3>Additonal Comments</h3></label>
+                                <textarea name="comments" placeholder="Leave comments here"></textarea>
+                            </div>
+                            <div>
+                                <button type="button" class="button" id="clear" onclick="preClear()">Clear Form</button>
+                                <button type="submit" class="button" id="submitBtn">Send Info</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <section id="other" class="stuff"><h1>Other Cryptids</h1>Here are links to the <a href="https://www.wikipedia.org/">Wikipedia</a> pages of several other well known Cryptids (an animal whose existence is unsubstantiated).
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Chupacabra">Chupacabra</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Kraken">Kraken</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Loch_Ness_Monster">Loch Ness Monster</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Yeti">Yeti</a></li>
+            </ul>
+            </section>
+            <footer>
+                <div>This website was made by Gunnar Bostrom<br><br>All information comes from <a href="https://www.wikipedia.org/">Wikipedia</a><br><br>
+            </footer>
+        </div>
+        <script>
+            $(document).ready(function () {
+              initValidation($("form"));
+            });
+        </script>
+        <div onmousemove="follow(event)"><img src="images/bigfootWalk.gif" alt="movingBigfoot" id="movingBigFoot"></div>
+    </body>
+</html>

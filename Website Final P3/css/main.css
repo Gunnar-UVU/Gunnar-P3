@@ -1,0 +1,285 @@
+
+body {
+    background-color: darkgreen;
+    font-size:28px;
+}
+#content {
+    background-image: linear-gradient(green,lightgreen);
+    display:grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-auto-rows: auto;
+    margin:auto;
+    grid-gap: 5px;
+}
+header {
+    background-color: darkgreen;
+    grid-column: 1/13;
+    display:flex;
+    justify-content:space-between;
+    font-size:36pt;
+    padding:20px;
+}
+footer {
+    background-color: darkgreen;
+    grid-column: 1/13;
+    display:flex;
+    justify-content: center;
+}
+footer > div {
+    padding:30px;
+}
+#menu {
+    background-color: darkgreen;
+    display:inline-block;
+    margin: auto;
+}
+#menuwords {
+    display:inline-block;
+    position: relative;
+    bottom: 4px;
+}
+.menuicon {
+    max-width: 35px;
+    max-height: 35px;
+    position: relative;
+}
+.slide-content {
+    position:absolute;
+    left:-300px;
+    background-color: green;
+    padding:15px;
+    height:35%;
+    animation: close-nav 1s forwards;
+}
+@keyframes close-nav {
+    from {left:0px;}
+    to {left:-300px;}
+}
+nav:hover .slide-content {
+    left:-300px;
+    animation: nav-bar 1s forwards;
+}
+@keyframes nav-bar {
+    from {left:-300px;}
+    to {left: 0px;}
+}
+button:hover {
+    filter: brightness(90%);
+  }
+.bigfooticon {
+    max-width: 24px;
+    max-height: 40px;
+}
+.selection {
+    background-color:green;
+    padding:10px;
+    border:0px;
+    font-size:14pt;
+    width: 100px;
+}
+.stuff {
+    padding-left:30px;
+    padding-right:25px;
+}
+main {
+    grid-column: 1/13;
+    display:flex;
+    flex-wrap:wrap;
+}
+p {
+    text-indent: 10%;
+}
+#p1 {
+    flex:1;
+}
+#shownpictures {
+    max-height: 300px;
+}
+#captions {
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 350px;
+    left:30px;
+    position: relative;
+}
+select {
+    background-color: rgb(63, 177, 63);  
+    font-size: 20pt;
+}
+#contacts {
+    display:none;
+    grid-column: 1/13;
+}
+#main2 {
+    display:flex;
+    grid-column: 1/13;
+}
+#main21 {
+    display:flex;
+}
+#p2 {
+    flex-basis: 60%;
+}
+iframe {
+    flex-basis: 40%;
+    padding-right:30px;
+}
+#visitLog {
+    display:none;       
+    grid-column: 1/13;
+    justify-content: center;
+}
+input {
+    font-size:28px;
+}
+input, textarea {
+    background-color: lightgrey;
+}
+input:focus, textarea:focus {
+    background-color: white;
+}
+#formed {
+    display:none;
+}
+form {
+    grid-column: 1/13;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+}
+form > * {
+    display: inline;
+    margin:auto;
+    padding:20px;
+}
+.right {
+    float:right;
+}
+.left {
+    float:left;
+}
+.fullLine {
+    display:block;
+}
+.short {
+    padding-right:10px;
+}
+#state {
+    text-transform: uppercase;
+}
+#checks {
+    flex-wrap: wrap;
+    margin:auto;
+    padding-bottom: 0px;
+}
+#checks div :not(.errorMsg) {
+    display: inline;
+    padding:20px;
+}
+input[type=checkbox] {
+  -ms-transform: scale(2);
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  padding: 10px;
+}
+.smallbutton {
+    padding:5px 20px;
+    background-color: rgb(97, 206, 97);
+    margin: 0px 15px;
+}
+#visitTable {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+}
+#myTable {
+    width:100%;
+    margin:40px 10px;
+    border:green solid 5px;
+}
+th, td {
+    border:darkblue solid 5px;
+}
+#myTable tr > *:nth-child(5) {
+    display:none;
+}
+tr:hover {
+    filter:brightness(80%);
+}
+tr:nth-child(even) {
+    background-color: rgb(41, 179, 41);
+}
+tr:nth-child(odd) {
+    background-color: rgb(38, 153, 96);
+}
+.comment {
+    padding-top:5px;
+    width:80%;
+}
+textarea {
+    width:100%;
+    height:90px;
+}
+#completeMsg, .errorMsg {
+    display:none;
+    font-weight: bold;
+}
+.button {
+    padding:30px;
+    background-color: rgb(97, 206, 97);
+    margin: 0px 25px;
+}
+#other {
+    display:none;
+    grid-column: 1/13;
+}
+#movingBigFoot {
+    position:fixed;
+    height:25px;
+}
+.errorMsg {
+    color:red;
+    background-color: yellow;
+    padding:5px;
+}
+.notValidated ~ label {
+    display:none;
+}
+.notValidated > .errorMsg {
+    display:inline;
+}
+.notValidated ~ .errorMsg {
+    display:inline;
+}
+@media (min-width: 320px) and (max-width: 1000px) {
+    iframe {
+        flex-basis: 100%
+    }
+    #main21 {
+        flex-wrap:wrap;
+    }
+    #p2 {
+        flex-basis: 100%
+    }
+    figure {
+        margin-left:0px;
+        padding-left:0px;
+        order:1;
+    }
+    #p1 {
+        order:2;
+    }
+    header {
+        font-size:18pt;
+    }
+    .stuff {
+        font-size: 14pt;
+    }
+    input {
+        width:80%;
+    }
+    .fullLine input {
+        size:30;
+    }
+}
